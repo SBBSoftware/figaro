@@ -85,6 +85,7 @@ module Figaro
     def secure_path
       a = Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
       puts "Secure path = #{a}"
+      a
     end
 
 
