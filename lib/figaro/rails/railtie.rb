@@ -5,7 +5,6 @@ module Figaro
         puts 'Loading Figaro'
         Figaro.load
         puts 'Environment Loaded'
-        puts ENV
       end
     end
   end
