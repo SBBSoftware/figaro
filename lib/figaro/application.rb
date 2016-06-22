@@ -32,6 +32,7 @@ module Figaro
       # global_configuration.merge(environment_configuration)
       result = (global_configuration.merge(environment_configuration)).merge(global_secured_configuration.merge(environment_secured_configuration))
       puts result
+      result
     end
 
     def load
