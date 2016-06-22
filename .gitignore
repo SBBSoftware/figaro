@@ -4,3 +4,6 @@
 /gemfiles/*.gemfile.lock
 /pkg
 /tmp
+.ruby-version
+.ruby-gemset
+.idea
