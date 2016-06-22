@@ -1,3 +1,4 @@
+require 'figaro/version'
 require "figaro/error"
 require "figaro/env"
 require "figaro/application"
