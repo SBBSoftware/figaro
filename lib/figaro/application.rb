@@ -30,9 +30,7 @@ module Figaro
 
     def configuration
       # global_configuration.merge(environment_configuration)
-      result = (global_configuration.merge(environment_configuration)).merge(global_secured_configuration.merge(environment_secured_configuration))
-      puts result
-      result
+      (global_configuration.merge(environment_configuration)).merge(global_secured_configuration.merge(environment_secured_configuration))
     end
 
     def load
@@ -85,12 +83,11 @@ module Figaro
 
     # TODO: make this configurable?
     def secure_path
-      a = Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
-      puts "Secure path = #{a}"
-      a
+      path = Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
+      path_exists = File.exist?(path)
+      puts "Secure path = #{path} exists: #{path_exists}"
+      path
     end
-
-
 
     def set(key, value)
       non_string_configuration!(key) unless key.is_a?(String)
