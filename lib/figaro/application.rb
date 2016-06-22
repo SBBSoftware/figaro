@@ -29,7 +29,8 @@ module Figaro
     end
 
     def configuration
-      global_configuration.merge(environment_configuration)
+      # global_configuration.merge(environment_configuration)
+      (global_configuration.merge(environment_configuration)).merge(global_secured_configuration.merge(environment_secured_configuration))
     end
 
     def load
@@ -67,6 +68,25 @@ module Figaro
     def environment_configuration
       raw_configuration[environment] || {}
     end
+
+    def environment_secured_configuration
+      raw_secured_configuration[environment] || {}
+    end
+
+    def global_secured_configuration
+      raw_secured_configuration.reject { |_, value| value.is_a?(Hash) }
+    end
+
+    def raw_secured_configuration
+      (@secure_parsed ||= Hash.new { |hash, path| hash[secure_path] = parse(secure_path) })[secure_path]
+    end
+
+    # TODO: make this configurable?
+    def secure_path
+      Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
+    end
+
+
 
     def set(key, value)
       non_string_configuration!(key) unless key.is_a?(String)
