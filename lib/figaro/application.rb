@@ -83,7 +83,8 @@ module Figaro
 
     # TODO: make this configurable?
     def secure_path
-      Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
+      a = Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
+      puts "Secure path = #{a}"
     end
 
 
