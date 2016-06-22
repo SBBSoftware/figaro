@@ -4,7 +4,6 @@ module Figaro
       config.before_configuration do
         puts 'Loading Figaro'
         Figaro.load
-        puts 'Environment Loaded'
       end
     end
   end
