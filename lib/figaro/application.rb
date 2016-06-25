@@ -85,7 +85,7 @@ module Figaro
     def secure_path
       path = Pathname.new File.join(File.expand_path('~/configuration'), 'application.yml')
       path_exists = File.exist?(path)
-      puts "Secure path = #{path} exists: #{path_exists}"
+      # puts "Secure path = #{path} exists: #{path_exists}"
       path
     end
 
