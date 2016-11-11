@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'figaro/version'
 
 Gem::Specification.new do |gem|
-  gem.name    = "figaro"
+  gem.name    = "cpg-figaro"
   gem.version = Figaro::VERSION
 
   gem.author      = "Steve Richert"
